@@ -1,0 +1,3 @@
+cn,sn,mail,uid,homeDirectory,uidNumber,gidNumber
+"Arun Shankar","Shankar","aruna@example.com","uniq1","/home/arun","1000","1000"
+"Mike Sto","Sto","mike@example.com","uniq2","/home/mike","1001","1001"

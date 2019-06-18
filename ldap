@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+require './utils/dir_maker'
+require './lib/option_handler'
+
+path='ou=people,dc=example,dc=org'
+
+dir_maker = DirMaker.create(path)
+
+options = {}
+OptionParser.new do |opt|
+  opt.on('--csv Pass CSV file location') { |o| options[:csv] = o }
+  opt.on('--cn Search LDAP By CN') { |o| options[:cn] = o }
+  opt.on('--sn Search LDAP By SN') { |o| options[:sn] = o }
+  opt.on('--mail Search LDAP By MAIL') { |o| options[:mail] = o }
+  opt.on('--uid Search LDAP By UID') { |o| options[:uid] = o }
+  opt.on('--homeDirectory Search LDAP By homeDirectory') { |o| options[:csv] = o }
+  opt.on('--uidNumber Search LDAP By UID') { |o| options[:uidNumber] = o }
+  opt.on('--gidNumber Search LDAP By gidNumber') { |o| options[:csv] = o }
+end.parse!
+
+OptionHandler.process(dir_maker.path, options)
